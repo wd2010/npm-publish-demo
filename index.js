@@ -5,8 +5,11 @@ import crypto from "crypto";
 import t from 'tap';
 import {v4 as uuidV4} from 'uuid';
 
+
 const id = uuidV4().slice(0, 8)
 const pkgVersion = '1.0.1'
+
+
 
 const testDir = t.testdir({
   'package.json': JSON.stringify({
@@ -57,7 +60,11 @@ const packument = {
 };
 
 const result = await publish(manifest, tarData, {
-  token: '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'
+  access: 'public',
+  forceAuth: {
+
+    token: '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'
+  }
 })
 
 console.log(result);
